@@ -81,7 +81,9 @@ Quick alias:
 ## The Use
 - Run the main typescript file!
 > alias city="home;CityScape/main.ts"
+
 > city
+
 - Open the City tab!
 - Hover over the buildings to see which location it belongs to!
 - Click a building to open its location options!
