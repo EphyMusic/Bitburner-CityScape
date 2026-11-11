@@ -70,6 +70,7 @@ Since this largely uses procedural generation, there's no assets involved.
 ## The Install
 Copy and paste this into your terminal:
 > wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/install.ts CityScape/install.ts
+
 Then run the installer file.
 > CityScape/install.ts
 Quick alias:
