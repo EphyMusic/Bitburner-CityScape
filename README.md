@@ -73,6 +73,7 @@ Copy and paste this into your terminal:
 
 Then run the installer file.
 > CityScape/install.ts
+
 Quick alias:
 > alias city="home;CityScape/main.ts"
 
