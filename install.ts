@@ -1,0 +1,52 @@
+// import {NS} from "@ns";
+
+/** Retains individual failures so the installer can report all missing files with manual commands. */
+class DownloadError {
+	message:string;
+	time: number;
+
+	constructor(message:string) {
+		this.message = `ERROR: ${message}`;
+		this.time = Date.now();
+	}
+}
+
+export async function main(ns: NS) {
+	ns.tprint("Downloading CityScape...")
+	// Each awaited download targets home; the companion command allows manual recovery if wget fails.
+	const files = [
+		{_: ns.tprint("Downloading main.ts..."),name: "main.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/main.ts","/CityScape/main.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/main.ts /CityScape/main.ts"},
+        {_: ns.tprint("Downloading Camera.ts..."),name:"Camera.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Camera.ts","/CityScape/lib/Camera.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Camera.ts /CityScape/lib/Camera.ts"},
+        {_: ns.tprint("Downloading Cars.ts..."),name:"Cars.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Cars.ts","/CityScape/lib/Cars.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Cars.ts /CityScape/lib/Cars.ts"},
+        {_: ns.tprint("Downloading CityDom.ts..."),name:"CityDom.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/CityDom.ts","/CityScape/lib/CityDom.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/CityDom.ts /CityScape/lib/CityDom.ts"},
+        {_: ns.tprint("Downloading CityParser.ts..."),name:"CityParser.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/CityParser.ts","/CityScape/lib/CityParser.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/CityParser.ts /CityScape/lib/CityParser.ts"},
+        {_: ns.tprint("Downloading CityScape.ts..."),name:"CityScape.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/CityScape.ts","/CityScape/lib/CityScape.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/CityScape.ts /CityScape/lib/CityScape.ts"},
+        {_: ns.tprint("Downloading Cleanup.ts..."),name:"Cleanup.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Cleanup.ts","/CityScape/lib/Cleanup.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Cleanup.ts /CityScape/lib/Cleanup.ts"},
+        {_: ns.tprint("Downloading EdgeBuilder.ts..."),name:"EdgeBuilder.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/EdgeBuilder.ts","/CityScape/lib/EdgeBuilder.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/EdgeBuilder.ts /CityScape/lib/EdgeBuilder.ts"},
+        {_: ns.tprint("Downloading Grid.ts..."),name:"Grid.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Grid.ts","/CityScape/lib/Grid.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Grid.ts /CityScape/lib/Grid.ts"},
+        {_: ns.tprint("Downloading Label.ts..."),name:"Label.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Label.ts","/CityScape/lib/Label.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Label.ts /CityScape/lib/Label.ts"},
+        {_: ns.tprint("Downloading Layout.ts..."),name:"Layout.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Layout.ts","/CityScape/lib/Layout.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Layout.ts /CityScape/lib/Layout.ts"},
+        {_: ns.tprint("Downloading Mat4.ts..."),name:"Mat4.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Mat4.ts","/CityScape/lib/Mat4.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Mat4.ts /CityScape/lib/Mat4.ts"},
+        {_: ns.tprint("Downloading MeshBuilder.ts..."),name:"MeshBuilder.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/MeshBuilder.ts","/CityScape/lib/MeshBuilder.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/MeshBuilder.ts /CityScape/lib/MeshBuilder.ts"},
+        {_: ns.tprint("Downloading Monorail.ts..."),name:"Monorail.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Monorail.ts","/CityScape/lib/Monorail.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Monorail.ts /CityScape/lib/Monorail.ts"},
+        {_: ns.tprint("Downloading Overlay.ts..."),name:"Overlay.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Overlay.ts","/CityScape/lib/Overlay.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Overlay.ts /CityScape/lib/Overlay.ts"},
+        {_: ns.tprint("Downloading Palette.ts..."),name:"Palette.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Palette.ts","/CityScape/lib/Palette.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Palette.ts /CityScape/lib/Palette.ts"},
+        {_: ns.tprint("Downloading RailPath.ts..."),name:"RailPath.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/RailPath.ts","/CityScape/lib/RailPath.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/RailPath.ts /CityScape/lib/RailPath.ts"},
+        {_: ns.tprint("Downloading Renderer.ts..."),name:"Renderer.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Renderer.ts","/CityScape/lib/Renderer.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Renderer.ts /CityScape/lib/Renderer.ts"},
+        {_: ns.tprint("Downloading Roads.ts..."),name:"Roads.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Roads.ts","/CityScape/lib/Roads.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Roads.ts /CityScape/lib/Roads.ts"},
+        {_: ns.tprint("Downloading SceneBuilder.ts..."),name:"SceneBuilder.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/SceneBuilder.ts","/CityScape/lib/SceneBuilder.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/SceneBuilder.ts /CityScape/lib/SceneBuilder.ts"},
+        {_: ns.tprint("Downloading Trains.ts..."),name:"Trains.ts",success: await ns.wget("https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Trains.ts","/CityScape/lib/Trains.ts","home"),manual: "wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/lib/Trains.ts /CityScape/lib/Trains.ts"}
+    ];
+	const errors:DownloadError[] = []
+	for (const file of files) {
+		if (!file.success) errors.push(new DownloadError(`Failed to download ${file.name} from https://github.com/EphyMusic/Bitburner-CityScape \nSuggest manual acquisition: home; ${file.manual}`));
+	}
+	if (errors.length > 0) {
+		for (const err of errors) {
+			ns.tprint(err.message);
+		}
+	} else {
+		ns.tprint("Files successfully downloaded.");
+	}
+	ns.exit();
+}
