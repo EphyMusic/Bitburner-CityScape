@@ -94,3 +94,11 @@ Quick alias:
 - A minimized tail is available to quickly shut down the script if needed. The tail will close itself when you press the stop button.
 - Watch the trains!!!!!
 - Also some tiny cars, but TRAINS!!!!!
+
+## The Requirements
+- Hardware capable of running WebGL stuff. You probably have that, don't worry.
+- The ability to read.
+- The ability to follow written instructions.
+- The ability to copy and paste as per written instruction
+- A mouse
+If you don't have these things... I'm so sorry...
