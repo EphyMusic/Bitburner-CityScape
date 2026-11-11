@@ -21,6 +21,8 @@ Experience the cities of Bitburner like never before! As 3-Dimensional, neon af 
 **_TRAINS_**!
 Let the world of bitburner come to life on your screen!
 
+Stay out of the fog...
+
 ## The Vision
 After playing Bitburner for a couple of years and learning a lot about... the early game...
 and JS/TS, I began to yearn for something past the ascii art. I imagined the city maps as
@@ -63,3 +65,28 @@ Streets and small buildings are generated through some witchcraft I have yet to 
 Tiny cars roam the roads (not a lot rn), and trains ferry (as of yet non-existent) people between stations.
 
 Since this largely uses procedural generation, there's no assets involved.
+
+
+## The Install
+Copy and paste this into your terminal:
+> wget https://raw.githubusercontent.com/EphyMusic/Bitburner-CityScape/refs/heads/main/install.ts CityScape/install.ts
+Then run the installer file.
+> CityScape/install.ts
+Quick alias:
+> alias city="home;CityScape/main.ts"
+
+
+## The Use
+- Run the main typescript file!
+> alias city="home;CityScape/main.ts"
+> city
+- Open the City tab!
+- Hover over the buildings to see which location it belongs to!
+- Click a building to open its location options!
+- Click an option to do the option!
+- Left-click and drag to rotate the map!
+- Right-click and drag to move the map!
+- Scroll to zoom in!
+- A minimized tail is available to quickly shut down the script if needed. The tail will close itself when you press the stop button.
+- Watch the trains!!!!!
+- Also some tiny cars, but TRAINS!!!!!
