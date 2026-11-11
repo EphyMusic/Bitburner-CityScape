@@ -4,7 +4,7 @@
 First off, full disclosure:
 This project was created almost entirely with the use of AI, using absolutely god-awful
 multi-shot prompting methods that no self-respecting AI expert/professional/slopper would ever
-use. It wasted my Co-Pilot basic paid monthly allowance twice. It felt like managing a a
+use. It wasted my Co-Pilot basic paid monthly allowance twice. It felt like managing a
 yes-man programmer more than a brilliant tool.
 
 The intention of AI use in this project was to learn from it, and create proofs of concept for
